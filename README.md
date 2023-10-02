@@ -23,7 +23,7 @@ TestNG: A testing framework inspired by JUnit and NUnit, ensuring efficient and 
 Allure Report: Provides detailed, interactive reports for test results visualization.
 Prerequisites
 Ensure you have the following software installed before setting up TheTestingMatrix:
-git clone https://github.com/ahmed-fathi/TheTestingMatrix.git
+git clone https://github.com/Ahmd-Fathi/TheTestingMatrix.git
 cd TheTestingMatrix
 # Additional setup commands if necessary
 # Run tests using TestNG
