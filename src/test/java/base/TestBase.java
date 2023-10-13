@@ -3,11 +3,9 @@ package base;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.ITestResult;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.*;
 import utility.helper;
 
 import java.util.concurrent.TimeUnit;
@@ -19,12 +17,22 @@ public class TestBase {
 
 
     @BeforeClass
-    public  void StartDriver()
+    @Parameters({"browser"})
+    public  void StartDriver(@Optional ("Chrome") String browserName)
     {
 
+        if (browserName.equalsIgnoreCase("Chrome")) {
 
-        WebDriverManager.chromedriver().setup();
-        driver=new ChromeDriver();
+            WebDriverManager.chromedriver().setup();
+            driver=new ChromeDriver();
+
+        } else if (browserName.equalsIgnoreCase("Firefox")) {
+
+            WebDriverManager.firefoxdriver().setup();
+            driver=new FirefoxDriver();
+        }
+
+
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(9, TimeUnit.SECONDS);
         driver.get("https://demo.nopcommerce.com/");
@@ -45,15 +53,7 @@ public class TestBase {
 
 
 
-    @AfterMethod
-    public void screenShootOnFailure(ITestResult result) {
-        if (result.getStatus() == ITestResult.FAILURE) {
-            System.out.println("Fail");
-            System.out.println("Taking screenshot");
-            helper.captureScreenshots(driver, result.getName());
-        }
 
-    }
 
 
 

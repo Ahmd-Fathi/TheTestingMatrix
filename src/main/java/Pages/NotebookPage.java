@@ -12,6 +12,7 @@ public class NotebookPage {
 
     private By SuccessMessageAfterNavigateToNotebookPage=By.cssSelector("div[class=\"page-title\"] h1");
 public String SuccessMessage()
+
 {
     return driver.findElement(SuccessMessageAfterNavigateToNotebookPage).getText();
 }
