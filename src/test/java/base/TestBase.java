@@ -1,13 +1,19 @@
 package base;
 
+import com.google.common.io.Files;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
-import utility.helper;
 
+
+import java.io.File;
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 public class TestBase {
@@ -30,6 +36,10 @@ public class TestBase {
 
             WebDriverManager.firefoxdriver().setup();
             driver=new FirefoxDriver();
+        } else if (browserName.equalsIgnoreCase("Edge")) {
+            WebDriverManager.edgedriver().setup();
+            driver=new EdgeDriver();
+
         }
 
 
@@ -51,31 +61,37 @@ public class TestBase {
 
 
 
+@AfterMethod
+    public  void screenshotFailure(ITestResult result)
+
+{
+    if (ITestResult.FAILURE==result.getStatus());
+    {
+        var camera = (TakesScreenshot) driver;
+        File screenshot = camera.getScreenshotAs(OutputType.FILE);
+      try {
+          Files.move(screenshot,new File("F:\\IdeaProjects\\AutomatedTestingFramework\\screenshot\\test.png"));
+      }catch (IOException e) {
+         e.printStackTrace();
+      }
+      }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+

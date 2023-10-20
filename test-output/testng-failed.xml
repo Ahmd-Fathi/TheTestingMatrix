@@ -1,41 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [All Test Suite]" guice-stage="DEVELOPMENT">
+<suite thread-count="2" parallel="methods" name="Failed suite [All Test Suite]" guice-stage="DEVELOPMENT">
+  <parameter name="parallel" value="true"/>
   <parameter name="browser" value="Chrome"/>
-  <test thread-count="5" name="F:/IdeaProjects/AutomatedTestingFramework(failed)">
+  <test thread-count="2" parallel="methods" name="F:/IdeaProjects/AutomatedTestingFramework(failed)">
     <classes>
-      <class name="AddToCompareList.AddToCompareListTest">
+      <class name="Register.RegisterTest">
         <methods>
-          <include name="screenShootOnFailure"/>
-          <include name="TC_UserCanNavigateToCompareProductPageAfterAddingTwoProducts"/>
+          <include name="TC_SuccessfulRegistrationwithValidCredentials"/>
+          <include name="TC_VerifyThatUserCanLoginSuccessfully"/>
           <include name="QuitDriver"/>
-          <include name="TC_UserCanLoginBeforeAddingToCompareList"/>
-          <include name="TC_UserCanRegisterBeforeAddingToCompareList"/>
-          <include name="TC_UserCanSearchForProductOneBeforeAddingToCompareList"/>
-          <include name="TC_InteractWithTableToPrintAllInformationAndCountRowsTest"/>
-          <include name="TC_UserCanSearchForProductTwoBeforeAddingToCompareList"/>
+          <include name="TC_VerifyThatAUserCannotRegisterWithInvalidEmail"/>
+          <include name="TC_VerifyThatAUserCannotLogInWithShortLengthUsername"/>
+          <include name="TC_VerifyThatAUserCannotLogInWithWrongPass"/>
+          <include name="StartDriver"/>
+          <include name="TC_VerifyThatAUserCannotLogInWithShortLengthUsernameInLoginBox"/>
+        </methods>
+      </class> <!-- Register.RegisterTest -->
+      <class name="shoppingCart.shoppingCartTest">
+        <methods>
+          <include name="QuitDriver"/>
+          <include name="TC_userFillBillingData"/>
+          <include name="TC_UserWillAddSelectedProductToCart"/>
+          <include name="TC_UserWillChoosePaymentMethod"/>
+          <include name="TC_selectProductToAddToShoppingCart"/>
+          <include name="TC_userCanRegisterBeforeAddToCartt"/>
+          <include name="StartDriver"/>
+          <include name="TC_userCanLoginBeforeAddToCart"/>
+        </methods>
+      </class> <!-- shoppingCart.shoppingCartTest -->
+      <class name="EmailFrind.EmailFrindTest">
+        <methods>
+          <include name="QuitDriver"/>
+          <include name="TC_VerifyThatUserCanLoginBeforeEmailFrind"/>
+          <include name="TC_UserCanSearchForProductBeforeEmailFriend"/>
+          <include name="TC_InvalidFriendEmail"/>
+          <include name="TC_UserCanEmailFriendSuccessfully"/>
+          <include name="StartDriver"/>
+          <include name="TC_VerifyThatUserCanResiterBeforeEmailFrind"/>
+        </methods>
+      </class> <!-- EmailFrind.EmailFrindTest -->
+      <class name="Search.SearchTest">
+        <methods>
+          <include name="TC_UserCanSearchForProduct"/>
+          <include name="QuitDriver"/>
+          <include name="TC_UserCanRegisterBeforeSearchForProduct"/>
+          <include name="TC_UserCanLoginBeforeSearchForPordoacut"/>
           <include name="StartDriver"/>
         </methods>
-      </class> <!-- AddToCompareList.AddToCompareListTest -->
-      <class name="Wishlist.WishlistTest">
-        <methods>
-          <include name="screenShootOnFailure"/>
-          <include name="QuitDriver"/>
-          <include name="TC_ProductSuccessfullyAddedToWishlistByUser"/>
-          <include name="TC_UserCanSearchForProductBeforeAddingToWishlist"/>
-          <include name="TC_UserCanRegisterBeforeAddingToWishlist"/>
-          <include name="TC_UserCanLoginBeforeAddingToWishlist"/>
-          <include name="StartDriver"/>
-        </methods>
-      </class> <!-- Wishlist.WishlistTest -->
-      <class name="upload.uploadTest">
-        <methods>
-          <include name="screenShootOnFailure"/>
-          <include name="QuitDriver"/>
-          <include name="StartDriver"/>
-          <include name="TC_FileUUpload"/>
-        </methods>
-      </class> <!-- upload.uploadTest -->
+      </class> <!-- Search.SearchTest -->
     </classes>
   </test> <!-- F:/IdeaProjects/AutomatedTestingFramework(failed) -->
 </suite> <!-- Failed suite [All Test Suite] -->

@@ -4,6 +4,7 @@ import Pages.*;
 import base.TestBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utility.Util;
 
 public class EmailFrindTest extends TestBase {
     HomePage HomeObject;
@@ -25,7 +26,9 @@ public class EmailFrindTest extends TestBase {
         HomeObject = new HomePage(driver);
         RegisterPage RegisterPage = HomeObject.ClickRegisterLink();
         RegisterResultPage RegisterResultPage = RegisterPage.FillRegisterBox(FirstName, LastName, Email, password);
+        Util.recordingOnPass(driver,"EmailfrindTest");
         Assert.assertTrue(RegisterResultPage.SuccessfulRegister().contains("Your registration completed"));
+
 
     }
 
@@ -57,6 +60,7 @@ public class EmailFrindTest extends TestBase {
         EmailFrindPage.setFriendEmailField(wrongFriendEmail);
         EmailFrindPage.setMessageFriendField(Messegtofrind);
         EmailFrindPage.clickEmailSendBtn();
+
         Assert.assertTrue(EmailFrindPage.GetTxtInvalidFriendEmail().contains("Wrong email"));
         driver.navigate().refresh();
     }

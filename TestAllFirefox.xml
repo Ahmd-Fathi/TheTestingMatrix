@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <parameter name="browser" value="Firefox"></parameter>
+    <test verbose="2" preserve-order="true" name="F:/IdeaProjects/AutomatedTestingFramework">
+        <classes>
+            <class name="EmailFrind.EmailFrindTest">
+            </class>
+            <class name="Hover.HoverTest">
+            </class>
+            <class name="Register.RegisterTest">
+            </class>
+            <class name="Search.SearchTest">
+            </class>
+            <class name="shoppingCart.shoppingCartTest">
+            </class>
+            <class name="upload.uploadTest">
+            </class>
+            <class name="Wishlist.WishlistTest">
+            </class>
+
+        </classes>
+    </test>
+</suite>

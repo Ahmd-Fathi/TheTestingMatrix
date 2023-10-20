@@ -1,17 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-    <parameter name="browser" value="Chrome"></parameter>
+<suite name="parallel ">
     <test verbose="2" preserve-order="true" name="F:/IdeaProjects/AutomatedTestingFramework">
-        <classes>
-            <class name="AddToCompareList.AddToCompareListTest">
-            </class>
-            <class name="Hover.HoverTest">
-            </class>
-            <class name="upload.uploadTest">
-            </class>
-            <class name="Wishlist.WishlistTest">
-            </class>
-        </classes>
     </test>
+    
+    <suite-files>
+        <suite-file path="TestAllChrome.xml"></suite-file>
+        <suite-file path="TestAllFirefox.xml"></suite-file>
+        <suite-file path="TestAllEdge.xml"></suite-file>
+    </suite-files>
 </suite>
