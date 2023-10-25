@@ -22,7 +22,7 @@ public class EmailFrindTest extends TestBase {
 
 
     @Test(priority = 1)
-    public void TC_VerifyThatUserCanResiterBeforeEmailFrind() {
+    public void TC_VerifyThatUserCanResiterBeforeEmailFriend() {
         HomeObject = new HomePage(driver);
         RegisterPage RegisterPage = HomeObject.ClickRegisterLink();
         RegisterResultPage RegisterResultPage = RegisterPage.FillRegisterBox(FirstName, LastName, Email, password);
