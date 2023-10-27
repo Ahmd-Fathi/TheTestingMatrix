@@ -12,7 +12,7 @@ public class Util {
 
 
 
-public  static  void recordingOnPass(WebDriver driver,String screenshotName)
+public  static  void screenshotAfterTestPass(WebDriver driver,String screenshotName)
 {
 var camera=(TakesScreenshot )driver;
 

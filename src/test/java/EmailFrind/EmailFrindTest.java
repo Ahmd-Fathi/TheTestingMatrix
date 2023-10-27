@@ -26,7 +26,7 @@ public class EmailFrindTest extends TestBase {
         HomeObject = new HomePage(driver);
         RegisterPage RegisterPage = HomeObject.ClickRegisterLink();
         RegisterResultPage RegisterResultPage = RegisterPage.FillRegisterBox(FirstName, LastName, Email, password);
-        Util.recordingOnPass(driver,"EmailfrindTest");
+        Util.screenshotAfterTestPass(driver,"EmailfrindTest");
         Assert.assertTrue(RegisterResultPage.SuccessfulRegister().contains("Your registration completed"));
 
 
