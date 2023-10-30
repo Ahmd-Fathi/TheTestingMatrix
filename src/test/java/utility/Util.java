@@ -1,5 +1,6 @@
 package utility;
 
+import com.github.javafaker.Faker;
 import com.google.common.io.Files;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -10,8 +11,13 @@ import java.io.IOException;
 
 public class Util {
 
+public void generateRandomUsers()
+{
+
+    Faker faker=new Faker();
 
 
+}
 public  static  void screenshotAfterTestPass(WebDriver driver,String screenshotName)
 {
 var camera=(TakesScreenshot )driver;
@@ -22,6 +28,36 @@ var camera=(TakesScreenshot )driver;
    }catch (IOException e){
        e.printStackTrace();
    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
