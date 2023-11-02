@@ -11,13 +11,7 @@ import java.io.IOException;
 
 public class Util {
 
-public void generateRandomUsers()
-{
 
-    Faker faker=new Faker();
-
-
-}
 public  static  void screenshotAfterTestPass(WebDriver driver,String screenshotName)
 {
 var camera=(TakesScreenshot )driver;
