@@ -40,9 +40,6 @@
         </pluginManagement>
     </build>
 
-
-
-
 <profiles>
     <profile>
         <id>RunChrome</id>

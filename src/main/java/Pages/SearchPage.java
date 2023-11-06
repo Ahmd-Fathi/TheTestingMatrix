@@ -9,75 +9,22 @@ import java.util.List;
 
 public class SearchPage {
     WebDriver driver;
-    public SearchPage(WebDriver driver)
-    {
-        this.driver=driver;
+
+    public SearchPage(WebDriver driver) {
+        this.driver = driver;
     }
 
-    private By SearchField=By.id("small-searchterms");
-    private By SuggestProductAuto=By.xpath("/html/body/div[6]/div[1]/div[2]/div[2]/ul");
+    private By SearchField = By.id("small-searchterms");
+    private By SuggestProductAuto = By.xpath("/html/body/div[6]/div[1]/div[2]/div[2]/ul");
 
     public ProductDetailsPage setSearchField(String ProductName) throws InterruptedException {
         driver.findElement(SearchField).sendKeys(ProductName);
-        List<WebElement>SuggestProduct=driver.findElements(SuggestProductAuto);
+        List<WebElement> SuggestProduct = driver.findElements(SuggestProductAuto);
 
         SuggestProduct.get(0).click();
-        return  new ProductDetailsPage(driver);
+        return new ProductDetailsPage(driver);
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

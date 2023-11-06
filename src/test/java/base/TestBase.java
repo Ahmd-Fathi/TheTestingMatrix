@@ -26,50 +26,44 @@ public class TestBase {
 
     public static WebDriver driver;
 
-    public  static  String DownloadPath="F:\\IdeaProjects\\AutomatedTestingFramework\\download";
+    public static String DownloadPath = "F:\\IdeaProjects\\AutomatedTestingFramework\\download";
 
-    public  static FirefoxOptions FireFoxOption()
+    public static FirefoxOptions FireFoxOption() {
+        FirefoxOptions options = new FirefoxOptions();
 
-    {
-        FirefoxOptions options=new FirefoxOptions();
-
-        options.addPreference("browser.download.folderList",2);
-        options.addPreference("browser.download.dir",DownloadPath);
+        options.addPreference("browser.download.folderList", 2);
+        options.addPreference("browser.download.dir", DownloadPath);
         // options.addPreference("browser.helperApps.neverAsk.saveToDisk","application/octet-stream");
-        options.addPreference("browser.download.manager.showWhenStarting",false);
+        options.addPreference("browser.download.manager.showWhenStarting", false);
         return options;
     }
 
 
-    public  static ChromeOptions  ChromeOption()
-    {
-        ChromeOptions options=new ChromeOptions();
-        HashMap<String,Object> ChromePrefs=new HashMap<String,Object>();
-        ChromePrefs.put("profile.default.content_settings.popups",0);
-        ChromePrefs.put("download.default_directory",DownloadPath);
-        options.setExperimentalOption("prefs",ChromePrefs);
-        options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS,true);
-        return  options;
+    public static ChromeOptions ChromeOption() {
+        ChromeOptions options = new ChromeOptions();
+        HashMap<String, Object> ChromePrefs = new HashMap<String, Object>();
+        ChromePrefs.put("profile.default.content_settings.popups", 0);
+        ChromePrefs.put("download.default_directory", DownloadPath);
+        options.setExperimentalOption("prefs", ChromePrefs);
+        options.setCapability(CapabilityType.ACCEPT_INSECURE_CERTS, true);
+        return options;
     }
-
 
 
     @BeforeClass
     @Parameters({"browser"})
-    public  void startDriver(@Optional ("Chrome") String browserName)
-    {
-        if (browserName.equalsIgnoreCase("Chrome"))
-        {
+    public void startDriver(@Optional("Chrome") String browserName) {
+        if (browserName.equalsIgnoreCase("Chrome")) {
             WebDriverManager.chromedriver().setup();
-            driver=new ChromeDriver(ChromeOption());
+            driver = new ChromeDriver(ChromeOption());
 
         } else if (browserName.equalsIgnoreCase("Firefox")) {
             WebDriverManager.firefoxdriver().setup();
-            driver=new FirefoxDriver(FireFoxOption());
+            driver = new FirefoxDriver(FireFoxOption());
 
         } else if (browserName.equalsIgnoreCase("Edge")) {
             WebDriverManager.edgedriver().setup();
-            driver=new EdgeDriver();
+            driver = new EdgeDriver();
 
         }
 
@@ -79,36 +73,30 @@ public class TestBase {
     }
 
 
-
-
     @AfterClass
-    public  void quiatedriver() throws InterruptedException {
-        Thread.sleep(2000);
+    public void quiatedriver() throws InterruptedException {
+
         driver.quit();
     }
 
 
-
     @AfterMethod
-    public  void takscrrenshootonfalier(ITestResult result)
-
-    {
-        if (ITestResult.FAILURE==result.getStatus())
-        {
-            var camera=(TakesScreenshot)driver;
-            File SCREENSHOOTFOLDER=camera.getScreenshotAs(OutputType.FILE);
+    public void takscrrenshootonfalier(ITestResult result) {
+        if (ITestResult.FAILURE == result.getStatus()) {
+            var camera = (TakesScreenshot) driver;
+            File SCREENSHOOTFOLDER = camera.getScreenshotAs(OutputType.FILE);
             try {
-                Files.move(SCREENSHOOTFOLDER,new File("F:\\IdeaProjects\\AutomationUniversity\\SCREENSHOOTFOLDER\\test.png"));
-                Allure.addAttachment("Screenshot", new ByteArrayInputStream(((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES)));
-            }catch (IOException e){
+                Files.move(SCREENSHOOTFOLDER, new File("F:\\IdeaProjects\\AutomationUniversity\\SCREENSHOOTFOLDER\\test.png"));
+                Allure.addAttachment("Screenshot", new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
+            } catch (IOException e) {
                 e.printStackTrace();
             }
 
         }
 
 
-
-    }}
+    }
+}
 
 
 

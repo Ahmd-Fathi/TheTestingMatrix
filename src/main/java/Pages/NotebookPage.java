@@ -5,67 +5,16 @@ import org.openqa.selenium.WebDriver;
 
 public class NotebookPage {
     WebDriver driver;
-    public NotebookPage(WebDriver driver)
-    {
-        this.driver=driver;
+
+    public NotebookPage(WebDriver driver) {
+        this.driver = driver;
     }
 
-    private By SuccessMessageAfterNavigateToNotebookPage=By.cssSelector("div[class=\"page-title\"] h1");
-public String SuccessMessage()
+    private By SuccessMessageAfterNavigateToNotebookPage = By.cssSelector("div[class=\"page-title\"] h1");
 
-{
-    return driver.findElement(SuccessMessageAfterNavigateToNotebookPage).getText();
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    public String SuccessMessage() {
+        return driver.findElement(SuccessMessageAfterNavigateToNotebookPage).getText();
+    }
 
 
 }

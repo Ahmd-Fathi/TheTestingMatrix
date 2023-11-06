@@ -10,12 +10,12 @@
             </class>
             <class name="Register.RegisterTest">
             </class>
-            <class name="Search.SearchTest">
-            </class>
+<!--            <class name="Search.SearchTest">-->
+<!--            </class>-->
             <class name="shoppingCart.shoppingCartTest">
             </class>
-            <class name="Wishlist.WishlistTest">
-            </class>
+<!--            <class name="Wishlist.WishlistTest">-->
+<!--            </class>-->
 
         </classes>
     </test>

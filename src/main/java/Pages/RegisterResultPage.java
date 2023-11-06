@@ -5,74 +5,19 @@ import org.openqa.selenium.WebDriver;
 
 public class RegisterResultPage {
     WebDriver driver;
-    public  RegisterResultPage(WebDriver driver)
-    {
-        this.driver=driver;
+
+    public RegisterResultPage(WebDriver driver) {
+        this.driver = driver;
     }
 
 
-    private By RegisterResult=By.cssSelector("div[class=\"result\"]");
+    private By RegisterResult = By.cssSelector("div[class=\"result\"]");
 
 
+    public String SuccessfulRegister() {
+        return driver.findElement(RegisterResult).getText();
 
-
-    
-public  String SuccessfulRegister()
-{
-   return driver.findElement(RegisterResult).getText();
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 
 
 }
