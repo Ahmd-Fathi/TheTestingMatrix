@@ -56,7 +56,7 @@ public class TestBase {
 
     @BeforeClass
     @Parameters({"browser"})
-    public  void startDriver(@Optional ("Firefox") String browserName)
+    public  void startDriver(@Optional ("Chrome") String browserName)
     {
         if (browserName.equalsIgnoreCase("Chrome"))
         {
@@ -75,7 +75,7 @@ public class TestBase {
 
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.get("https://the-internet.herokuapp.com/");
+        driver.get("https://demo.nopcommerce.com/");
     }
 
 
