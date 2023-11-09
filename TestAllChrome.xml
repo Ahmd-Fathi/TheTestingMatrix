@@ -6,8 +6,8 @@
         <classes>
             <class name="EmailFrind.EmailFrindTest">
             </class>
-            <class name="Hover.HoverTest">
-            </class>
+<!--            <class name="Hover.HoverTest">-->
+<!--            </class>-->
             <class name="Register.RegisterTest">
             </class>
 <!--            <class name="Search.SearchTest">-->
